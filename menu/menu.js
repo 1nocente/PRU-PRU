@@ -11,12 +11,72 @@ seuPerfil.addEventListener('click', function(){
     window.location.href = '../meu_perfil/meu_perfil.html'
 })
 
-if(localStorage.getItem('premium')) {
+if(localStorage.getItem('premium') === 'true') {
     layoutPremium()
 } else {
-    // layoutNaopremium()
+    layoutNaopremium()
+    console.log('ueueueueueueuue');
 }
 
+function layoutNaopremium() {
+
+    espaco_extra.innerHTML = ''
+    espaco_extra.innerHTML = 
+    `
+    <div class="naoPremium">
+                <div class="desc_premium">
+                    <div class="titulo">
+                        <h2>Seja Premium</h2>
+                        <img src="../img/premium.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>Seja premium para participar da comunidade PRU e escrever o suas tarefas</span>
+                    </div>
+                </div>
+                <div id="sejaPremium" class="btn_sejaPremium">
+                    SEJA PREMIUM PARA POSTAR
+                </div>
+            </div>
+    `
+
+    const botao_sejaPremium = document.getElementById('sejaPremium')
+
+    botao_sejaPremium.addEventListener('click', function(){
+
+        alert('não é possivel pois o servidor não aceita metodos PUT')
+    })
+}
+
+// async function sejaPremium() {
+
+//     try {
+
+//         console.log('reformulando');
+
+//         const listTasks = await pegarTarefas()
+
+//         listTasks.forEach(task => {
+
+//             if(task.id == localStorage.getItem('IdUsuario')){
+//                 task.premium = true
+//             }
+//         });
+
+//         await fetch(listTasks, {
+//             method: "PUT",
+//             headers: {
+//                 "Content-Type": "application/json; charset=UTF-8"
+//             },
+//             body: JSON.stringify(listTasks)
+//         });
+
+//         console.log(`${localStorage.getItem('nomeUsuario')} ficou premium`);
+//         window.location.href = '../index.html'
+//     } catch (error) {
+//         console.error('Este usuario não ficou premium', error);
+//     }
+
+// }
 function layoutPremium() {
 
     espaco_extra.innerHTML = ''
@@ -160,7 +220,7 @@ async function subirTarefa(novaDescricao, novaDataConclusao) {
 }
 
 async function postarTarefa(tarefa) {
-    const endPoint = 'http://localhost:5080/tarefas';
+    const endPoint = 'http://localhost:5080/tarefas/';
     await fetch(endPoint, {
         method: 'POST',
         headers: {

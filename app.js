@@ -41,10 +41,10 @@ async function logarUsuario() {
 
             if (usuarioEncontrado && premium == true) {
                 alert('Usuario Logado com Sucesso - premium !!');
-                window.location.href = './menu_premium/menu.html';
+                window.location.href = './menu/menu.html';
             } else if(usuarioEncontrado && premium == false){
                 alert('Usuario Logado com Sucesso - comum !!')
-                window.location.href = './menu_premium/menu.html';
+                window.location.href = './menu/menu.html';
             } else {
                 alert('Email ou senha incorretos')
             }

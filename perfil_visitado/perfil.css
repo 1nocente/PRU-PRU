@@ -297,3 +297,38 @@ h3{
     font-size: 1vw;
     font-weight: bold;
 }
+
+.container_comentar{
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    background-color: white;
+    width: 20vw;
+    border-radius: 12px;
+    align-items: center;
+    padding-block: 2vh;
+}
+
+.container_comentar img{
+    height: 8svh;
+    width: auto;
+}
+
+.container_comentar textarea{
+    resize: none;
+    text-align: center;
+    font-size: 1vw;
+}
+
+#btn_comentar{
+    background-color: #8B00BC;
+    border-radius: 8px;
+    padding: 1vh 1vw;
+    font-size: 2vw;
+    color: white;
+    margin-top: auto;
+}
+
+.fundo_icones:hover{
+    background-color: rgba(241, 186, 252, 0.5);
+}

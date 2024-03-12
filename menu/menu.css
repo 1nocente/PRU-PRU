@@ -213,7 +213,7 @@ textarea{
 }
 
 .criarNovaTarefa{
-    background-color: #8B00BC;
+    background-color: #B966D7;
     height: auto;
     width: auto;
     border-radius: 8px;
@@ -232,4 +232,54 @@ textarea{
 
 #sair{
     font-size: 1vw;
+}
+
+.naoPremium{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 6vh;
+}
+
+.desc_premium{
+    background-color: #B966D7;
+    width: 60%;
+    border-radius: 12px;
+    height: auto;
+}
+
+.titulo{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.titulo h2{
+    font-size: 1.5vw;
+    color: rgb(212, 219, 19);
+}
+
+.desc{
+    text-align: center;
+    padding-inline: 2vw;
+    margin-bottom: 3vh;
+}
+
+.desc span{
+    font-size: 1.1vw;
+    font-weight: bold;
+}
+
+.btn_sejaPremium{
+    background-color: #B966D7;
+    border-radius: 12px;
+    padding: 1vh 1vw;
+    font-size: 2vw;
+    width: 60%;
+    font-weight: bold;
+    text-align: center;
 }

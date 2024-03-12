@@ -7,6 +7,13 @@ const container_tarefas = document.getElementById('container_tarefas')
 const nome = document.getElementById('nome')
 const foto_perfil = document.getElementById('foto_perfil')
 
+const casa = document.getElementById('casa')
+
+casa.addEventListener('click', function(){
+
+    window.location.href = '../menu/menu.html'
+})
+
 async function colocarNomeFoto() {
 
     const listUsers = await pegarUsuarios()
@@ -99,13 +106,63 @@ async function mostrarComentarios(descricao, idTarefa) {
                     <p class="texto_comentando">${tarefa_descricao}</p>
                     <p>Qtd comentarios: ${qtd_comentarios}</p>
                 </div>
-                <div class="botao_comentar">
+                <div id = "comentar" class="botao_comentar">
                     COMENTAR
                 </div>
             </div>
             <div id="container_comentarios" class="container_comentarios"></div>
         </div>
     `
+
+    const comentar = document.getElementById('comentar')
+
+    comentar.addEventListener('click', function(){
+
+        telaComentar(tarefaId)
+    })
+
+    function telaComentar(idTarefa) {
+
+        const tarefaId = idTarefa
+
+        fundo_transparente.classList.add('fundoPreto_transparente')
+        fundo_transparente.innerHTML = ''
+
+        fundo_transparente.innerHTML = 
+        `
+        <div class="container_comentar">
+            <img src="../img/logoPru 2.png" alt="">
+            <textarea maxlength="120" id="comentario" cols="20" rows="5" placeholder="Digite seu comentário"></textarea>
+            <div id="btn_comentar">Comentar</div>
+        </div>
+        `
+
+        const botao_comentar = document.getElementById('btn_comentar')
+
+        botao_comentar.addEventListener('click', async function(){
+
+            alert('não é possivel enviar um comentario, pois o servidor não aceita o metodo post')
+            fundo_transparente.innerHTML = ''
+            fundo_transparente.classList.remove('fundoPreto_transparente')
+
+            // const txtComentario = document.getElementById('comentario').value
+
+            // const novoComentario = {}
+
+            // const listTasks = await pegarTarefas()
+
+            // if(txtComentario) {
+
+            //     listTasks.forEach(task => {
+
+            //         if(task.id == tarefaId) {
+
+            //         }
+            //     });
+            // }
+            // postarComentario(tarefaId, txtComentario)
+        })
+    }
 
     const sair = document.getElementById('sair')
     sair.addEventListener('click', function(){
@@ -121,7 +178,6 @@ async function validarComentarios(idTarefa, qtd_comentarios) {
 
     if(qtd_comentarios == 0) {
         alert('não há comentários')
-        window.location.reload()
     } else {
 
         const tarefaId = idTarefa
@@ -196,6 +252,17 @@ async function contagemComentarios(idTarefa) {
     });
     return qtd_comentarios;
 }
+
+// async function postarComentario(){
+//     const listTasks = await pegarTarefas()
+//     await fetch(listTasks, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(tarefa)
+//     });
+// }
 
 async function pegarTarefas() {
     const endpoint = 'http://localhost:5080/tarefas';
